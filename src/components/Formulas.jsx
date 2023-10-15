@@ -1,37 +1,50 @@
-export function voltage() {
+import * as calculations from "../utils/calculations";
+export function voltage(props) {
   return (
-    <div>
+    <div id="voltage">
       <input type="number" placeholder="Сопротивление Ом" />
       <select id="Ohm">
-        <option value="mOm">мОм</option>
-        <option value="Om">Ом</option>
-        <option value="KOm">КОм</option>
-        <option value="MOm">МОм</option>
+        <option value="0">Ом</option>
+        <option value="-3">мОм</option>
+        <option value="3">КОм</option>
+        <option value="6">МОм</option>
       </select>
       *
       <input type="number" placeholder="Сила тока А" />
       <select id="A">
-        <option value="micA">микроA</option>
-        <option value="mA">мA</option>
-        <option value="A">A</option>
-        <option value="KA">КA</option>
-        <option value="MA">МA</option>
+        <option value="0">A</option>
+        <option value="-6">микроA</option>
+        <option value="-3">мA</option>
+        <option value="3">КA</option>
+        <option value="6">МA</option>
       </select>
-      <button>Посчитать</button>
+      <button
+        onClick={() => {
+          calculations.calcVoltage(props);
+        }}
+      >
+        Посчитать
+      </button>
     </div>
   );
 }
-export function forceGravity() {
+export function forceGravity(props) {
   return (
-    <div>
+    <div id="forceGravity">
       <input type="number" placeholder="Масса Кг" />
-      <select id="Ohm">
-        <option value="mOm">мОм</option>
-        <option value="Om">Ом</option>
-        <option value="KOm">КОм</option>
-        <option value="MOm">МОм</option>
+      <select id="KG">
+        <option value="0">Килограмм</option>
+        <option value="-3">Грамм</option>
+        <option value="3">Тонна</option>
       </select>
-      * g<button>Посчитать</button>
+      * g
+      <button
+        onClick={() => {
+          calculations.calcForceGravity(props);
+        }}
+      >
+        Посчитать
+      </button>
     </div>
   );
 }
