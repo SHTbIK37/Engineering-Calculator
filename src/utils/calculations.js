@@ -10,8 +10,17 @@ function goC(elementId, inputs) {
     .getElementById(elementId)
     .getElementsByTagName("select");
   const resultsC = [];
-
+  console.log(selects);
+  console.log(inputs);
   for (let i = 0; i < selects.length; i++) {
+    if (selects[i].id === "Time") {
+      if (selects[i].value[0] === "-")
+        resultsC.push(inputs[i].value / 10 ** -selects[i].value);
+      if (selects[i].value === "1") resultsC.push(inputs[i].value / 60);
+      if (selects[i].value === "2") resultsC.push(inputs[i].value / 60 / 60);
+      if (selects[i].value === "0") resultsC.push(inputs[i].value);
+      continue;
+    }
     if (selects[i].value[0] === "-") {
       resultsC.push(inputs[i].value / 10 ** -selects[i].value);
       continue;
@@ -43,4 +52,10 @@ export function calcVoltage(props) {
   const resultsC = goC("voltage", inputs);
   const result = resultsC[0] * resultsC[1];
   renderAnswer({ props, result, unit: "В" });
+}
+export function calcSpeed(props) {
+  const inputs = getInputs("speed");
+  const resultsC = goC("speed", inputs);
+  const result = resultsC[0] / resultsC[1];
+  renderAnswer({ props, result, unit: "м/с" });
 }

@@ -5,6 +5,7 @@ export function FormulasList(props) {
       <select id="formulasList">
         <option value="forceGravity">Сила тяжести</option>
         <option value="voltage">Вольтаж</option>
+        <option value="speed">Скорость</option>
       </select>
       <button
         onClick={() => {

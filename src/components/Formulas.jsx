@@ -13,7 +13,7 @@ export function voltage(props) {
       <input type="number" placeholder="Сила тока А" />
       <select id="A">
         <option value="0">A</option>
-        <option value="-6">микроA</option>
+        <option value="-6">мкA</option>
         <option value="-3">мA</option>
         <option value="3">КA</option>
         <option value="6">МA</option>
@@ -41,6 +41,34 @@ export function forceGravity(props) {
       <button
         onClick={() => {
           calculations.calcForceGravity(props);
+        }}
+      >
+        Посчитать
+      </button>
+    </div>
+  );
+}
+export function speed(props) {
+  return (
+    <div id="speed">
+      <input type="number" placeholder="Расстояние Метры" />
+      <select id="S">
+        <option value="0">Метры</option>
+        <option value="-3">Миллиметры</option>
+        <option value="-2">Сантиметры</option>
+        <option value="3">Километры</option>
+      </select>
+      /
+      <input type="number" placeholder="Время Секунды" />
+      <select id="Time">
+        <option value="0">Секунды</option>
+        <option value="-3">Милисекунды</option>
+        <option value="1">Минуты</option>
+        <option value="2">Час</option>
+      </select>
+      <button
+        onClick={() => {
+          calculations.calcSpeed(props);
         }}
       >
         Посчитать
