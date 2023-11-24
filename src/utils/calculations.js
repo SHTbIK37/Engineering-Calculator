@@ -31,31 +31,48 @@ function goC(elementId, inputs) {
     }
     resultsC.push(inputs[i].value * 10 ** selects[i].value);
   }
-  console.log(resultsC);
   return resultsC;
 }
 function renderAnswer(resultState) {
-  resultState.props.setAnswer(
+  resultState.props.props.setAnswer(
     <div id="answer">
       Ответ: {resultState.result} {resultState.unit}
     </div>
   );
 }
-export function calcForceGravity(props) {
-  const inputs = getInputs("forceGravity");
-  const resultsC = goC("forceGravity", inputs);
-  const result = resultsC[0] * constants.g;
-  renderAnswer({ props, result, unit: "Н" });
-}
 export function calcVoltage(props) {
-  const inputs = getInputs("voltage");
-  const resultsC = goC("voltage", inputs);
+  const inputs = getInputs("Operations");
+  const resultsC = goC("Operations", inputs);
   const result = resultsC[0] * resultsC[1];
   renderAnswer({ props, result, unit: "В" });
 }
+export function calcOhm(props) {
+  const inputs = getInputs("Operations");
+  const resultsC = goC("Operations", inputs);
+  const result = resultsC[0] / resultsC[1];
+  renderAnswer({ props, result, unit: "Ом" });
+}
+export function calcI(props) {
+  const inputs = getInputs("Operations");
+  const resultsC = goC("Operations", inputs);
+  const result = resultsC[0] / resultsC[1];
+  renderAnswer({ props, result, unit: "А" });
+}
+export function calcForceGravity(props) {
+  const inputs = getInputs("Operations");
+  const resultsC = goC("Operations", inputs);
+  const result = resultsC[0] * constants.g;
+  renderAnswer({ props, result, unit: "Н" });
+}
+export function calcWeightG(props) {
+  const inputs = getInputs("Operations");
+  const resultsC = goC("Operations", inputs);
+  const result = resultsC[0] / constants.g;
+  renderAnswer({ props, result, unit: "Кг" });
+}
 export function calcSpeed(props) {
-  const inputs = getInputs("speed");
-  const resultsC = goC("speed", inputs);
+  const inputs = getInputs("Operations");
+  const resultsC = goC("Operations", inputs);
   const result = resultsC[0] / resultsC[1];
   renderAnswer({ props, result, unit: "м/с" });
 }

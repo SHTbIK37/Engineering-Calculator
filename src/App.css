@@ -1,0 +1,14 @@
+body {
+  background-color: gray;
+}
+#root {
+  padding: 20px;
+  background: white;
+
+  margin: 0 auto;
+  width: 80%;
+  height: 100vh;
+}
+#mainText {
+  margin-top: 0;
+}

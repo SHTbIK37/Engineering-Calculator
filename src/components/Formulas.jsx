@@ -1,56 +1,62 @@
 import * as calculations from "../utils/calculations";
-export function voltage(props) {
+import * as MathJaxText from "./MathJaxText";
+import { MathJax, MathJaxContext } from "better-react-mathjax";
+import * as Variables from "./Variables";
+export function voltageFormula(props) {
   return (
-    <div id="voltage">
-      <input type="number" placeholder="Сопротивление Ом" />
-      <select id="Ohm">
-        <option value="0">Ом</option>
-        <option value="-3">мОм</option>
-        <option value="3">КОм</option>
-        <option value="6">МОм</option>
-      </select>
-      *
-      <input type="number" placeholder="Сила тока А" />
-      <select id="A">
-        <option value="0">A</option>
-        <option value="-6">мкA</option>
-        <option value="-3">мA</option>
-        <option value="3">КA</option>
-        <option value="6">МA</option>
+    <div id="voltageFormula">
+      <MathJaxText.VoltageFormula />
+      <span>Выберите, что хотете найти</span>
+      <br />
+      <select id="selectVarVoltage">
+        <option value="VariablesU">Напряжение</option>
+        <option value="VariablesI">Сила тока</option>
+        <option value="VariablesR">Сопротивление</option>
       </select>
       <button
         onClick={() => {
-          calculations.calcVoltage(props);
+          const letter = document.getElementById("selectVarVoltage")?.value;
+          props.setRenderVariables(
+            <Variables.VariablesU props={props} letter={letter} />
+          );
         }}
       >
-        Посчитать
+        Ок
       </button>
     </div>
   );
 }
-export function forceGravity(props) {
+export function forceGravityFormula(props) {
   return (
-    <div id="forceGravity">
-      <input type="number" placeholder="Масса Кг" />
-      <select id="KG">
-        <option value="0">Килограмм</option>
-        <option value="-3">Грамм</option>
-        <option value="3">Тонна</option>
+    <div id="forceGravityFormula">
+      <MathJaxText.ForceGravityFormula />
+      <span>Выберите, что хотете найти</span>
+      <br />
+      <select id="selectVarForceGravity">
+        <option value="VariablesF">Сила тяжести</option>
+        <option value="VariablesM">Масса тела</option>
       </select>
-      * g
       <button
         onClick={() => {
-          calculations.calcForceGravity(props);
+          const letter = document.getElementById(
+            "selectVarForceGravity"
+          )?.value;
+          props.setRenderVariables(
+            <Variables.VariablesF props={props} letter={letter} />
+          );
         }}
       >
-        Посчитать
+        Ок
       </button>
     </div>
   );
 }
-export function speed(props) {
+export function speedFormula(props) {
   return (
-    <div id="speed">
+    <div id="speedFormula">
+      <MathJaxContext>
+        <MathJax>{"\\(v=S/t\\)"}</MathJax>
+      </MathJaxContext>
       <input type="number" placeholder="Расстояние Метры" />
       <select id="S">
         <option value="0">Метры</option>
