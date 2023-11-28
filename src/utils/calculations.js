@@ -13,6 +13,12 @@ function goC(elementId, inputs) {
   console.log(selects);
   console.log(inputs);
   for (let i = 0; i < selects.length; i++) {
+    if (selects[i].id === "v") {
+      if (selects[i].value === "0") resultsC.push(inputs[i].value);
+      if (selects[i].value === "3")
+        resultsC.push((inputs[i].value * 1000) / 3600);
+      continue;
+    }
     if (selects[i].id === "Time") {
       if (selects[i].value[0] === "-")
         resultsC.push(inputs[i].value / 10 ** -selects[i].value);
@@ -75,4 +81,16 @@ export function calcSpeed(props) {
   const resultsC = goC("Operations", inputs);
   const result = resultsC[0] / resultsC[1];
   renderAnswer({ props, result, unit: "м/с" });
+}
+export function calcS(props) {
+  const inputs = getInputs("Operations");
+  const resultsC = goC("Operations", inputs);
+  const result = resultsC[0] * resultsC[1];
+  renderAnswer({ props, result, unit: "м" });
+}
+export function calct(props) {
+  const inputs = getInputs("Operations");
+  const resultsC = goC("Operations", inputs);
+  const result = resultsC[0] / resultsC[1];
+  renderAnswer({ props, result, unit: "c" });
 }

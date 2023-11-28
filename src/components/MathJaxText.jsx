@@ -25,3 +25,15 @@ export function ForceGravityFormula() {
     </>
   );
 }
+export function SpeedFormula() {
+  return (
+    <>
+      <MathJaxContext>
+        <MathJax>{"Формула скорости: \\(v=S/t\\)"}</MathJax>
+        <MathJax>{"\\(v\\) - Скорость"}</MathJax>
+        <MathJax>{"\\(S\\) - Расстояние"}</MathJax>
+        <MathJax>{"\\(t\\) - Время"}</MathJax>
+      </MathJaxContext>
+    </>
+  );
+}

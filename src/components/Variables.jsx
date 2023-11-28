@@ -1,18 +1,11 @@
 import * as calculations from "../utils/calculations";
 import { MathJax, MathJaxContext } from "better-react-mathjax";
-const config = {
-  loader: { load: ["[tex]/html"] },
-  tex: {
-    packages: { "[+]": ["html"] },
-    inlineMath: [["$", "$"]],
-    displayMath: [["\\(", "\\)"]],
-  },
-};
+
 export function VariablesU(props) {
   if (props.letter === "VariablesU") {
     return (
       <div id="Operations">
-        <MathJaxContext config={config}>
+        <MathJaxContext>
           <MathJax>{`\\(R\\) - `}</MathJax>
           <input type="number" placeholder="Сопротивление Ом" />
           <select id="Ohm">
@@ -115,7 +108,6 @@ export function VariablesU(props) {
   }
 }
 export function VariablesF(props) {
-  console.log(props);
   if (props.letter === "VariablesF") {
     return (
       <div id="Operations">
@@ -136,7 +128,7 @@ export function VariablesF(props) {
             calculations.calcForceGravity(props);
           }}
         >
-          Посчитать
+          Ок
         </button>
       </div>
     );
@@ -159,7 +151,108 @@ export function VariablesF(props) {
             calculations.calcWeightG(props);
           }}
         >
-          Посчитать
+          Ок
+        </button>
+      </div>
+    );
+  }
+}
+export function Variablesv(props) {
+  console.log(props.letter);
+  if (props.letter === "Variablesv") {
+    return (
+      <div id="Operations">
+        <MathJaxContext>
+          <MathJax>{"\\(S\\) - "}</MathJax>
+          <input type="number" placeholder="Расстояние Метры" />
+          <select id="S">
+            <option value="0">Метры</option>
+            <option value="-3">Миллиметры</option>
+            <option value="-2">Сантиметры</option>
+            <option value="3">Километры</option>
+          </select>
+          <br />
+          /
+          <br />
+          <MathJax>{"\\(t\\) - "}</MathJax>
+          <input type="number" placeholder="Время Секунды" />
+          <select id="Time">
+            <option value="0">Секунды</option>
+            <option value="-3">Милисекунды</option>
+            <option value="1">Минуты</option>
+            <option value="2">Час</option>
+          </select>
+        </MathJaxContext>
+        <button
+          onClick={() => {
+            calculations.calcSpeed(props);
+          }}
+        >
+          Ок
+        </button>
+      </div>
+    );
+  }
+  if (props.letter === "VariablesS") {
+    return (
+      <div id="Operations">
+        <MathJaxContext>
+          <MathJax>{"\\(v\\) - "}</MathJax>
+          <input type="number" placeholder="Скорость м/с" />
+          <select id="v">
+            <option value="0">м/c</option>
+            <option value="3">Км/ч</option>
+          </select>
+          <br />
+          *
+          <br />
+          <MathJax>{"\\(t\\) - "}</MathJax>
+          <input type="number" placeholder="Время Секунды" />
+          <select id="Time">
+            <option value="0">Секунды</option>
+            <option value="-3">Милисекунды</option>
+            <option value="1">Минуты</option>
+            <option value="2">Час</option>
+          </select>
+        </MathJaxContext>
+        <button
+          onClick={() => {
+            calculations.calcS(props);
+          }}
+        >
+          Ок
+        </button>
+      </div>
+    );
+  }
+  if (props.letter === "Variablest") {
+    return (
+      <div id="Operations">
+        <MathJaxContext>
+          <MathJax>{"\\(S\\) - "}</MathJax>
+          <input type="number" placeholder="Расстояние Метры" />
+          <select id="S">
+            <option value="0">Метры</option>
+            <option value="-3">Миллиметры</option>
+            <option value="-2">Сантиметры</option>
+            <option value="3">Километры</option>
+          </select>
+          <br />
+          /
+          <br />
+          <MathJax>{"\\(v\\) - "}</MathJax>
+          <input type="number" placeholder="Скорость м/с" />
+          <select id="v">
+            <option value="0">м/c</option>
+            <option value="3">Км/ч</option>
+          </select>
+        </MathJaxContext>
+        <button
+          onClick={() => {
+            calculations.calct(props);
+          }}
+        >
+          Ок
         </button>
       </div>
     );

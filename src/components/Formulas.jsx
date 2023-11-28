@@ -1,6 +1,4 @@
-import * as calculations from "../utils/calculations";
 import * as MathJaxText from "./MathJaxText";
-import { MathJax, MathJaxContext } from "better-react-mathjax";
 import * as Variables from "./Variables";
 export function voltageFormula(props) {
   return (
@@ -54,30 +52,23 @@ export function forceGravityFormula(props) {
 export function speedFormula(props) {
   return (
     <div id="speedFormula">
-      <MathJaxContext>
-        <MathJax>{"\\(v=S/t\\)"}</MathJax>
-      </MathJaxContext>
-      <input type="number" placeholder="Расстояние Метры" />
-      <select id="S">
-        <option value="0">Метры</option>
-        <option value="-3">Миллиметры</option>
-        <option value="-2">Сантиметры</option>
-        <option value="3">Километры</option>
-      </select>
-      /
-      <input type="number" placeholder="Время Секунды" />
-      <select id="Time">
-        <option value="0">Секунды</option>
-        <option value="-3">Милисекунды</option>
-        <option value="1">Минуты</option>
-        <option value="2">Час</option>
+      <MathJaxText.SpeedFormula />
+      <span>Выберите, что хотете найти</span>
+      <br />
+      <select id="selectVarSpeed">
+        <option value="Variablesv">Скорость</option>
+        <option value="VariablesS">Расстояние</option>
+        <option value="Variablest">Время</option>
       </select>
       <button
         onClick={() => {
-          calculations.calcSpeed(props);
+          const letter = document.getElementById("selectVarSpeed")?.value;
+          props.setRenderVariables(
+            <Variables.Variablesv props={props} letter={letter} />
+          );
         }}
       >
-        Посчитать
+        Ок
       </button>
     </div>
   );
