@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Engineering-Calculator/static/css/main.123f21c4.css",
+    "main.js": "/Engineering-Calculator/static/js/main.cfc45ede.js",
+    "static/js/787.a174f9e5.chunk.js": "/Engineering-Calculator/static/js/787.a174f9e5.chunk.js",
+    "index.html": "/Engineering-Calculator/index.html",
+    "main.123f21c4.css.map": "/Engineering-Calculator/static/css/main.123f21c4.css.map",
+    "main.cfc45ede.js.map": "/Engineering-Calculator/static/js/main.cfc45ede.js.map",
+    "787.a174f9e5.chunk.js.map": "/Engineering-Calculator/static/js/787.a174f9e5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.123f21c4.css",
+    "static/js/main.cfc45ede.js"
+  ]
+}
